@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "nome": "RUA",
+    "altura": 5,
+    "dist": 1.4,
+    "comp": 2.5,
+    "larg": 1.3,
+    "mods": 5
+  },
+  {
+    "id": 2,
+    "nome": "Rua 4",
+    "altura": 5,
+    "dist": 1.3,
+    "comp": 2.5,
+    "larg": 1.3,
+    "mods": 5,
+    "qtd": 2,
+    "de": 1
+  }
+]

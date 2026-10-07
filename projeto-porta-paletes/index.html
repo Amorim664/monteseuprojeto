@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark" style="color-scheme: dark;"><head><!-- frame-runtime --><!-- /frame-runtime -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Estruturas Porta-Paletes</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+<header>Estruturas Porta-Paletes</header>
+<main>
+<section class="card">
+<h2 id="ft">Novo cadastro</h2>
+<label>Identificação</label><input id="nome" placeholder="Ex.: Rua A - Estrutura 01">
+<div class="g2">
+<div><label>Altura total (m)</label><input id="altura" type="number" step="0.01" value="6"></div>
+<div><label>Distanciamento longarinas (m)</label><input id="dist" type="number" step="0.01" value="1.5"></div>
+<div><label>Comprimento do módulo (m)</label><input id="comp" type="number" step="0.01" value="2.7"></div>
+<div><label>Largura / profundidade (m)</label><input id="larg" type="number" step="0.01" value="1.1"></div>
+</div>
+<label>Quantidade de módulos</label><input id="mods" type="number" min="1" step="1" value="3">
+<div class="g2">
+<div><label>Quantidade de estruturas</label><input id="qtd" type="number" min="1" step="1" value="1"></div>
+<div id="wd" style="display:none"><label>Distanciamento entre estruturas (m)</label><input id="de" type="number" min="0" step="0.01" value="1"></div>
+</div>
+<label>Metragem total da estrutura (m) — calculada</label><input id="total" readonly="">
+<div class="info" id="calc"></div>
+<div class="row">
+<button id="save">Salvar</button>
+<button class="sec" id="clear">Limpar</button>
+</div>
+</section>
+
+<section class="card">
+<h2>Visual 3D da estrutura</h2>
+<div id="c3d" style="cursor: grab;"><div id="lab"></div></div>
+<div class="info">Arraste para girar, role/pince para aproximar. <a href="#" id="rv">Restaurar vista</a></div>
+<div class="leg"><span><i style="background:var(--blue)"></i>Montantes</span><span><i style="background:var(--orange)"></i>Longarinas</span></div>
+</section>
+
+<section class="card full">
+<h2>Estruturas cadastradas</h2>
+<div class="bar">
+<input id="q" placeholder="Pesquisar por identificação ou medidas...">
+<button class="org" id="xls">Gerar Excel</button>
+<button class="sec" id="zip">Baixar projeto (ZIP)</button>
+</div>
+<div class="info" id="st" style="margin:-4px 0 8px"></div>
+<div class="tw"><table>
+<thead><tr><th>ID</th><th>Identificação</th><th>Altura</th><th>Compr.</th><th>Larg.</th><th>Módulos</th><th>Estruturas</th><th>Dist. estr.</th><th>Metragem total</th><th>Níveis</th><th>Espaç. real</th><th></th></tr></thead>
+<tbody id="tb"></tbody></table></div>
+</section>
+</main>
+<script id="db" type="application/json">[{"id":1,"nome":"RUA","altura":5,"dist":1.4,"comp":2.5,"larg":1.3,"mods":5},{"id":2,"nome":"Rua 4","altura":5,"dist":1.3,"comp":2.5,"larg":1.3,"mods":5,"qtd":2,"de":1}]</script>
+<script src="js/app.js"></script>
+
+
+</body></html>
